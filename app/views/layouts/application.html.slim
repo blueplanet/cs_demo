@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+    title RailsDemo
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed type: "button" "data-toggle": "collapse" "data-target": "#navbar" "aria-expanded": "false" "aria-controls": "navbar"
+            span
+              Toggle navigatioon
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href='#' RailsDemo
+          
+    .container
+      == yield

@@ -1,0 +1,21 @@
+.topic-detail {
+  h1 {
+    font-size: 24px;
+  }
+  .info {
+    font-size: 12px;
+    color: #c0c0c0;
+    .node {
+      color: #778087;
+      text-decoration: none;
+      background: #f5f5f5;
+    }
+  }
+  .opts {
+    a {
+      color: #666;
+      margin-right: 10px;
+      text-decoration: none;
+    }
+  }
+}

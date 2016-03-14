@@ -1,0 +1,63 @@
+#user
+  .row
+    .col-md-4
+      .panel.panel-default
+        .panel-body
+          .media
+            .media-left
+              = image_tag letter_avatar_url('blueplanet')
+            .media-body
+              |blueplanet
+              br
+              |第 2650 位用户
+              br
+              |注册时间 2012-06-25
+              br
+              |20 篇帖子・143 条回帖
+                
+    .col-md-8
+      ul.nav.nav-tabs
+        li: a href='/ui/user' 个人信息
+        li: a href='/ui/topics' 帖子
+        li.active: a href='#' 回帖
+      .panel.panel.default
+        .panel-body
+          ul.list-group
+            li.list-group-item
+              .title
+                a href='/ui/topic' 关于在 Rails Model 中使用 Enum (枚举) 的若干总结 
+                em at 2 months ago
+              .body.markdown
+                p 补充几个踩过的坑
+                p 定义enum时自动增加的各个值对应的?和!方法是model范围内有效的。如果不同的字段有同名的值的时候一定要注意
+                pre
+                  |
+                    # user.rb
+                    enum status: [:temporary, :active, :deleted]
+                    enum admin_status: [:active, :super_admin]
+
+                    # rails console
+                    irb(main):001:0> u = User.neww
+                    ArgumentError: You tried to define an enum named "admin_status" on the model "User", but this will generate a instance method "active?", which is already defined by another enum.
+                    修改以前定义好的enum时需要注意历史数据
+                    # 原来是这样的定义
+                    enum status: [:temporary, :active, :deleted]
+                    # 修改后,
+                    enum status: [:temporary, :active, :waiting, :deleted]
+                    # 如果这样修改的话，以前的`deleted`的数据修改后就变成`:waiting`了！！！ :sleepy: 
+                p 所以，不推荐使用[:temporary, :active, :deleted]的方式，尽量使用{ temporary: 1, active: 2, deleted: 3]这样的明确定义数值的方式
+            li.list-group-item
+              .title
+                a href='/ui/topic' 准备着手翻译出版《Rebuilding Rails》，有人愿意买吗？ 
+                em at 2 months ago
+              .body.markdown 必须买！也希望是电子版！
+            li.list-group-item
+              .title
+                a href='/ui/topic' Ruby 基础 - RubyGem，如何开发一个自己的 Gem
+                em at 8 months ago
+              .body.markdown 
+                p
+                  |
+                    @cicholgricenchos 你的问题属于git的问题吧。
+                    在空文件夹里创建一个零字节的文件就成。
+                    按惯例一般是.gitkeep

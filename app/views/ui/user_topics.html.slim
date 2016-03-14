@@ -1,0 +1,53 @@
+#user
+  .row
+    .col-md-4
+      .panel.panel-default
+        .panel-body
+          .media
+            .media-left
+              = image_tag letter_avatar_url('blueplanet')
+            .media-body
+              |blueplanet
+              br
+              |第 2650 位用户
+              br
+              |注册时间 2012-06-25
+              br
+              |20 篇帖子・143 条回帖
+                
+    .col-md-8
+      ul.nav.nav-tabs
+        li: a href='/ui/user' 个人信息
+        li.active: a href='#' 帖子
+        li: a href='/ui/user_replies' 回帖
+      .panel.panel.default
+        .panel-body
+          table.table.topics
+            tr.topic
+              td.node
+                a href='/ui/node' 书籍
+              td.title
+                a href='/ui/topic' 类似 “按照最新发布文章时间排序的用户列表” 的优雅的实现方法 
+                em 10 months ago
+              td.replies 2/0
+            tr.topic
+              td.node
+                a href='/ui/node' Rails
+              td.title
+                a href='/ui/topic' [已解决]使用 Ajax 时遇到了 InvalidAuthenticityToken 错误 
+                em 2 years ago
+              td.replies 8/0
+            tr.topic
+              td.node
+                a href='/ui/node' Testing
+              td.title
+                a href='/ui/topic' feature spec / integration spec( request spec) / controller spec 的区别 
+                em 2 years ago
+              td.replies 2/2
+            tr.topic
+              td.node
+                a href='/ui/node' 新手问题
+              td.title
+                a href='/ui/topic' 网页上想要的效果和 Model 的对应关系弄不明白了 
+                em 3 years ago
+              td.replies 12/0

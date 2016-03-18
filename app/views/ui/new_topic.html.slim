@@ -1,0 +1,20 @@
+.panel.panel-default
+  .panel-heading 发布新话题
+  .panel-body
+    .form-group
+      .row
+        .col-md-2
+          select.form-control
+            option 选择节点
+            option value='Ruby' Ruby
+            option value='Rails' Rails
+            option value='瞎扯淡' 瞎扯淡
+        .col-md-10
+          = text_field_tag 'title', '', class: 'form-control', placeholder: '在这里填写标题'
+    .form-group
+      = text_area 'body', '', rows: 20, class: 'form-control'
+    .form-group
+      .row
+        .col-md-2
+          a.btn.btn-primary.btn-block 保存
+        

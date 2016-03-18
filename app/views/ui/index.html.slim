@@ -1,0 +1,5 @@
+ul
+  - Dir.glob('app/views/ui/*.html.slim').sort.each do |file|
+    - basename = File.basename(file, '.html.slim')
+    - unless basename == 'index' || basename.start_with?('_')
+      li = link_to basename.titleize, action: basename

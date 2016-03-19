@@ -11,7 +11,7 @@
                   = image_tag letter_avatar_url('hzbook')
               .media-body
                 h4.media-heading
-                  a href='#' = topic.title
+                  = link_to topic.title, topic
                 .info
                   = link_to topic.node.name, topic.node, class: 'node'
                   |・

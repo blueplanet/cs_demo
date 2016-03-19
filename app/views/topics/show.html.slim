@@ -7,7 +7,7 @@
           .info
             = link_to @topic.node.name, @topic.node, class: 'node'
             |・
-            a.user href='/ui/user' hzbook
+            = link_to @topic.user.name, @topic.user, class: 'user'
             |・
             = "created at #{time_ago_in_words @topic.created_at}"
             |・

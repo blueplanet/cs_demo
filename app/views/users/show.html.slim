@@ -1,23 +1,13 @@
 .row
   .col-md-4
-    .panel.panel-default
-      .panel-body
-        .media
-          .media-left
-            = image_tag letter_avatar_url(@user.name)
-          .media-body
-            = @user.name
-            br
-            |第 2650 位用户
-            br
-            = "注册时间 #{l @user.created_at.to_date, format: :long}"
-            br
-            |20 篇帖子・143 条回帖
+    = render 'basic_info', user: @user
               
   .col-md-8
     ul.nav.nav-tabs
-      li.active: a href='#' 个人信息
-      li: a href='/ui/user_topics' 帖子
+      li.active
+        = link_to '个人信息', @user
+      li
+        = link_to '帖子', user_topics_path(@user)
       li: a href='/ui/user_replies' 回帖
     .panel.panel.default
       .panel-body

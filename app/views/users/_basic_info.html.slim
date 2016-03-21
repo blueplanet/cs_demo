@@ -1,0 +1,13 @@
+.panel.panel-default
+  .panel-body
+    .media
+      .media-left
+        = image_tag letter_avatar_url(user.name)
+      .media-body
+        = user.name
+        br
+        |第 2650 位用户
+        br
+        = "注册时间 #{l user.created_at.to_date, format: :long}"
+        br
+        |20 篇帖子・143 条回帖

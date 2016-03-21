@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources 'topics', only: %i(index show new create) do
     resources :replies, only: :create
   end
+
   resources 'nodes', only: :show
   resources 'users', only: %i(show create) do
     get :topics
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'sign_up', to: 'users#new'
   get 'sign_in', to: 'sessions#new'
+  delete 'sign_out', to: 'sessions#destroy'
 
   resources 'ui', only: :index
   get 'ui/:action', controller: 'ui'

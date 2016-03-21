@@ -24,11 +24,11 @@ html
                 |blueplanet
                 span.caret
               ul.dropdown-menu aria-labelledby='userDropdownMenu'
-                li: a href='#' 我的主页
-                li: a href='#' 退出
+                li = link_to '我的主页', current_user
+                li = link_to '退出', sign_out_path, method: :delete
           - else
-            li = link_to '登录', new_sessions_path
-            li = link_to '注册新用户'
+            li = link_to '登录', sign_in_path
+            li = link_to '注册新用户', sign_up_path
           
     .container
       == yield

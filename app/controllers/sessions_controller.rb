@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    session[:user_id] = User.find_by name: params[:user_name]
+    session[:user_id] = User.find_by(name: params[:user_name]).id
     redirect_to root_path
   end
 end

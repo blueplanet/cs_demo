@@ -18,13 +18,17 @@ html
             span.icon-bar
           a.navbar-brand href='/' RailsDemo
         ul.nav.navbar-nav.navbar-right
-          li.dropdown
-            a.dropdown-toggle data-toggle='dropdown' id='userDropdownMenu'
-              |blueplanet
-              span.caret
-            ul.dropdown-menu aria-labelledby='userDropdownMenu'
-              li: a href='#' 我的主页
-              li: a href='#' 退出
+          - if current_user
+            li.dropdown
+              a.dropdown-toggle data-toggle='dropdown' id='userDropdownMenu'
+                |blueplanet
+                span.caret
+              ul.dropdown-menu aria-labelledby='userDropdownMenu'
+                li: a href='#' 我的主页
+                li: a href='#' 退出
+          - else
+            li = link_to '登录', new_sessions_path
+            li = link_to '注册新用户'
           
     .container
       == yield

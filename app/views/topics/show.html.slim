@@ -18,18 +18,8 @@
           a href='#'
             = image_tag letter_avatar_url('hzbook')
       .panel-body
-        article = @topic.body
-      .panel-footer
-        .opts
-          a href='#' 
-            span.glyphicon.glyphicon-heart>
-            span 15个赞
-          a href='#' 
-            span.glyphicon.glyphicon-eye-open>
-            span 关注
-          a href='#' 
-            span.glyphicon.glyphicon-bookmark>
-            span 收藏
+        article = simple_format @topic.body
+        
     #replies.panel.panel-default
       .panel-heading.total = "共收到 #{number_with_delimiter @topic.replies.size} 条回复"
       .media-list style='margin-top: 15px;'
@@ -42,7 +32,7 @@
                 a href='/ui/user' lgn21st
                 |・
                 = "回复于 #{time_ago_in_words reply.created_at} 之前"
-              .content = reply.content
+              .content = simple_format reply.content
               
     #new_reply.panel.panel-default
       .panel-heading 回帖

@@ -17,6 +17,14 @@ html
             span.icon-bar
             span.icon-bar
           a.navbar-brand href='/' RailsDemo
+        ul.nav.navbar-nav.navbar-right
+          li.dropdown
+            a.dropdown-toggle data-toggle='dropdown' id='userDropdownMenu'
+              |blueplanet
+              span.caret
+            ul.dropdown-menu aria-labelledby='userDropdownMenu'
+              li: a href='#' 我的主页
+              li: a href='#' 退出
           
     .container
       == yield

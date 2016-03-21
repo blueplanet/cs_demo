@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources 'topics', only: %i(index show)
+  resources 'topics', only: %i(index show new create)
   resources 'nodes', only: :show
-  resources 'users', only: %i(show create)
+  resources 'users', only: %i(show create) do
+    get :topics
+  end
   resources :sessions, only: :create
 
   get 'sign_up', to: 'users#new'

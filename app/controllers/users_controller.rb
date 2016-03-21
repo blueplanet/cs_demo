@@ -11,4 +11,8 @@ class UsersController < ApplicationController
     User.create! params.require(:user).permit(:name, :email)
     redirect_to root_path
   end
+
+  def topics
+    @user = User.find params[:user_id]
+  end
 end

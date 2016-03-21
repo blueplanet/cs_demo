@@ -15,11 +15,9 @@
                 .info
                   = link_to topic.node.name, topic.node, class: 'node'
                   |・
-                  a href='hzbook' hzbook
+                  = link_to topic.user.name, topic.user
                   |・
-                  |Last by
-                  a<> href='monsoon137' monsoon137
-                  = "Created at #{time_ago_in_words topic.created_at} ago"
+                  = "创建于 #{time_ago_in_words topic.created_at} 之前"
               .media-right
                 .badge.badge-default.count 30
 

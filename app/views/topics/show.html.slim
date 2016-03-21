@@ -43,6 +43,16 @@
                 |・
                 = "回复于 #{time_ago_in_words reply.created_at} 之前"
               .content = reply.content
+              
+    #new_reply.panel.panel-default
+      .panel-heading 回帖
+      .panel-body
+        form.form
+        = form_for [@topic, Reply.new] do |f|
+          .form-group
+            = f.text_area :content, class: 'form-control', rows: 4
+          .form-group
+            = f.submit '回复', class: 'btn btn-success'
             
   .col-md-3
     #topic-sidebar

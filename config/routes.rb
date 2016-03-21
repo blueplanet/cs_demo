@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources 'topics', only: %i(index show new create)
+  resources 'topics', only: %i(index show new create) do
+    resources :replies, only: :create
+  end
   resources 'nodes', only: :show
   resources 'users', only: %i(show create) do
     get :topics

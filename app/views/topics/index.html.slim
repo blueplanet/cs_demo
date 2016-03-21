@@ -18,6 +18,10 @@
                   = link_to topic.user.name, topic.user
                   |・
                   = "创建于 #{time_ago_in_words topic.created_at} 之前"
+                  - if topic.replies.count > 0
+                    |・最新由
+                    =<> link_to topic.replies.last.user.name, topic.replies.last.user
+                    = "回复于 #{time_ago_in_words topic.replies.last.created_at} 之前"
               .media-right
                 .badge.badge-default.count 30
 

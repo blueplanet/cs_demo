@@ -31,69 +31,18 @@
             span.glyphicon.glyphicon-bookmark>
             span 收藏
     #replies.panel.panel-default
-      .panel-heading.total 共收到 33 条回复
+      .panel-heading.total = "共收到 #{number_with_delimiter @topic.replies.size} 条回复"
       .media-list style='margin-top: 15px;'
-        .reply.media
-          .media-left
-            = image_tag letter_avatar_url('lgn21st', 48), class: 'avatar'
-          .media-body
-            .media-heading.infos
-              a href='/ui/user' lgn21st
-              |・
-              |20 days ago
-            .content 这本书的翻译出版对 Ruby 中文社区来说，是一件大好事，置顶支持一下。
-        .reply.media
-          .media-left
-            = image_tag letter_avatar_url('cqcn1991', 48), class: 'avatar'
-          .media-body
-            .media-heading.infos
-              a href='/ui/user' cqcn1991
-              |・
-              |20 days ago
-            .content
-              |我记得还有相应的视频，之前找了下，可惜一直没时间看
-              br
-              a href='http://www.informit.com/store/effective-ruby-livelessons-video-training-downloadable-9780134175379' http://www.informit.com/store/effective-ruby-livelessons-video-training-downloadable-9780134175379
-        .reply.media
-          .media-left
-            = image_tag letter_avatar_url('fighterleslie', 48), class: 'avatar'
-          .media-body
-            .media-heading.infos
-              a href='/ui/user' fighterleslie
-              |・
-              |20 days ago
-            .content
-              |Effective 系列确实都是好书！
-        .reply.media
-          .media-left
-            = image_tag letter_avatar_url('wwwicbd', 48), class: 'avatar'
-          .media-body
-            .media-heading.infos
-              a href='/ui/user' wwwicb
-              |・
-              |19 days ago
-            .content
-              |有电子版就更好了
-        .reply.media
-          .media-left
-            = image_tag letter_avatar_url('xmonkeycn', 48), class: 'avatar'
-          .media-body
-            .media-heading.infos
-              a href='/ui/user' xmonkeycn
-              |・
-              |19 days ago
-            .content
-              |kindle出来马上买，期待。
-        .reply.media
-          .media-left
-            = image_tag letter_avatar_url('adamshen', 48), class: 'avatar'
-          .media-body
-            .media-heading.infos
-              a href='/ui/user' adamshen
-              |・
-              |17 days ago
-            .content
-              |还是买实体书吧，matz的书我就是kindle上买的，看代码真心不方便。
+        - @topic.replies.each do |reply|
+          .reply.media
+            .media-left
+              = image_tag letter_avatar_url('lgn21st', 48), class: 'avatar'
+            .media-body
+              .media-heading.infos
+                a href='/ui/user' lgn21st
+                |・
+                = "回复于 #{time_ago_in_words reply.created_at} 之前"
+              .content = reply.content
             
   .col-md-3
     #topic-sidebar

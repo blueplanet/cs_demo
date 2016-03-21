@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320123728) do
+ActiveRecord::Schema.define(version: 20160321100738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 20160320123728) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "replies", force: :cascade do |t|
+    t.integer  "topic_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "replies", ["topic_id"], name: "index_replies_on_topic_id", using: :btree
+
   create_table "topics", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
@@ -45,4 +54,5 @@ ActiveRecord::Schema.define(version: 20160320123728) do
     t.string   "email"
   end
 
+  add_foreign_key "replies", "topics"
 end
